@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANNOMIYA MASANA | Researcher</title>
+  <meta name="description" content="健康と多様性の研究者・三宮柾名のポートフォリオサイト" />
+  
+  <style>
+    :root{
+      --bg:#f2f2f2;
+      --text:#111;
+      --muted:#555;
+      --line:#222;
+      --accent:#000;
+      --white:#fff;
+      --max:1200px;
+      --fs-lg: clamp(34px, 5vw, 56px);
+      --fs-md: 24px;
+      --fs-sm: 16px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Meiryo",sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.8;
+      font-size:var(--fs-sm);
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .container{
+      width:min(calc(100% - 32px), var(--max));
+      margin:0 auto;
+    }
+    .site-header{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(242,242,242,.97);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:grid;
+      grid-template-columns:1fr auto;
+      align-items:stretch;
+      min-height:64px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      padding:12px 24px;
+      font-weight:800;
+      text-decoration:none;
+      border-right:1px solid var(--line);
+    }
+    .brand small{
+      display:block;
+      font-size:var(--fs-sm);
+      line-height:1.1;
+      font-weight:700;
+      letter-spacing:.02em;
+    }
+    .brand strong{
+      display:block;
+      font-size:var(--fs-md);
+      line-height:1.05;
+      letter-spacing:.01em;
+    }
+    .nav-links{
+      display:flex;
+      align-items:stretch;
+    }
+    .nav-links a{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      min-width:110px;
+      padding:0 18px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:var(--fs-sm);
+      border-left:1px solid var(--line);
+    }
+    .nav-links a.cta{
+      background:#000;
+      color:#fff;
+    }
+
+    section{
+      padding:72px 0;
+      border-bottom:1px solid #777;
+    }
+    .hero{
+      padding-top:84px;
+      padding-bottom:88px;
+    }
+    .eyebrow{
+      font-weight:800;
+      font-size:var(--fs-md);
+      margin:0 0 12px 0;
+      letter-spacing:.03em;
+    }
+    h1{
+      font-size:var(--fs-lg);
+      line-height:1.05;
+      margin:0 0 24px 0;
+      font-weight:900;
+      letter-spacing:-0.03em;
+    }
+    .lead{
+      font-size:var(--fs-md);
+      font-weight:700;
+      margin:0 0 22px 0;
+      line-height:1.4;
+    }
+    .hero p{
+      max-width:760px;
+      font-size:var(--fs-sm);
+      color:var(--muted);
+      margin:0 0 28px 0;
+    }
+    .button{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background:#000;
+      color:#fff;
+      text-decoration:none;
+      padding:14px 24px;
+      font-weight:800;
+      border:1px solid #000;
+      font-size:var(--fs-sm);
+    }
+    .button:hover{opacity:.88}
+
+    .section-title{
+      display:flex;
+      align-items:flex-start;
+      gap:18px;
+      margin-bottom:40px;
+    }
+    .section-title::before{
+      content:"";
+      width:12px;
+      min-width:12px;
+      height:96px;
+      background:#111;
+      display:block;
+      margin-top:6px;
+    }
+    .section-title .sub{
+      font-size:var(--fs-md);
+      font-weight:800;
+      margin:0;
+      line-height:1.2;
+    }
+    .section-title h2{
+      font-size:var(--fs-lg);
+      line-height:1.05;
+      margin:4px 0 0 0;
+      font-weight:900;
+      letter-spacing:-0.03em;
+    }
+
+    .service-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+    .card{
+      padding:28px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.35);
+    }
+    .card h3{
+      margin:0 0 12px 0;
+      font-size:var(--fs-md);
+      line-height:1.35;
+    }
+    .card p{
+      margin:0;
+      color:#333;
+      font-size:var(--fs-sm);
+    }
+
+    .work-block{
+      padding:10px 0 36px 0;
+      border-top:1px solid #888;
+    }
+    .work-block:first-of-type{border-top:none;padding-top:0}
+    .work-block h3{
+      font-size:var(--fs-md);
+      margin:0 0 10px 0;
+      line-height:1.35;
+    }
+    .clients{
+      margin:0 0 18px 0;
+      font-size:var(--fs-sm);
+      color:#222;
+    }
+    ul.checklist{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:12px;
+    }
+    ul.checklist li{
+      position:relative;
+      padding-left:30px;
+      font-size:var(--fs-sm);
+    }
+    ul.checklist li::before{
+      content:"●";
+      position:absolute;
+      left:0;
+      top:0;
+      font-size:var(--fs-sm);
+      line-height:1.8;
+    }
+
+    .about-name{
+      font-size:var(--fs-md);
+      font-weight:800;
+      margin:0 0 10px 0;
+      padding-bottom:8px;
+      border-bottom:1px solid #888;
+    }
+    .about-text{
+      margin:0 0 28px 0;
+      font-size:var(--fs-sm);
+      color:#222;
+    }
+    .detail-heading{
+      font-size:var(--fs-md);
+      font-weight:800;
+      margin:30px 0 10px 0;
+      padding-bottom:8px;
+      border-bottom:1px solid #888;
+    }
+    .cv-link{
+      color:#0a58ca;
+      text-decoration:underline;
+      font-weight:700;
+      font-size:var(--fs-sm);
+    }
+
+    .contact-text{
+      font-size:var(--fs-sm);
+      color:#222;
+      margin-bottom:30px;
+    }
+    form{
+      display:grid;
+      gap:22px;
+      max-width:980px;
+    }
+    label{
+      display:block;
+      font-weight:800;
+      margin-bottom:8px;
+      font-size:var(--fs-sm);
+    }
+    .tag{
+      display:inline-block;
+      margin-left:8px;
+      padding:2px 8px;
+      background:#111;
+      color:#fff;
+      font-size:12px;
+      line-height:1.6;
+      vertical-align:middle;
+    }
+    input[type="text"],
+    input[type="email"],
+    select,
+    textarea{
+      width:100%;
+      padding:16px 14px;
+      border:1px solid #888;
+      background:#fff;
+      font-size:var(--fs-sm);
+      font-family:inherit;
+    }
+    textarea{
+      min-height:180px;
+      resize:vertical;
+    }
+    .radio-group{
+      display:grid;
+      gap:10px;
+      padding-top:6px;
+    }
+    .radio-group label,
+    .check-consent label{
+      font-weight:400;
+      margin:0;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    input[type="radio"],
+    input[type="checkbox"]{
+      transform:translateY(4px);
+    }
+    .policy{
+      margin-top:8px;
+      padding:20px;
+      background:rgba(255,255,255,.45);
+      border:1px solid #888;
+      font-size:var(--fs-sm);
+      color:#222;
+      max-height:360px;
+      overflow:auto;
+      white-space:pre-line;
+    }
+    .policy h3{
+      margin:0 0 12px 0;
+      font-size:var(--fs-md);
+    }
+    .submit-note{
+      font-size:var(--fs-sm);
+      color:#333;
+      margin-top:-8px;
+    }
+    code{
+      background:rgba(255,255,255,.6);
+      border:1px solid #bbb;
+      padding:2px 6px;
+      font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      font-size:.95em;
+    }
+    .footer{
+      padding:28px 0 50px;
+      color:#444;
+      font-size:var(--fs-sm);
+    }
+
+    @media (max-width: 900px){
+      .service-grid{grid-template-columns:1fr}
+      .nav{grid-template-columns:1fr}
+      .brand{border-right:none;border-bottom:1px solid var(--line)}
+      .nav-links{
+        overflow:auto;
+        border-top:none;
+      }
+      .nav-links a{
+        min-width:96px;
+        padding:16px 14px;
+        white-space:nowrap;
+      }
+    }
+  </style>
+
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav container">
+      <a class="brand" href="#top">
+        <div>
+          <small>Researcher</small>
+          <strong>SANNOMIYA MASANA</strong>
+        </div>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#service">Service</a>
+        <a href="#works">Works</a>
+        <a href="#about">About</a>
+        <a class="cta" href="#contact">お問い合わせ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">健康と多様性の研究者</p>
+        <h1>三宮 柾名</h1>
+        <p class="lead">研究能力を活かし、企業の課題を解決します</p>
+        <p></p>
+        
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <p class="sub">提供内容</p>
+            <h2>Service</h2>
+          </div>
+        </div>
+
+        <div class="service-grid">
+          <article class="card">
+            <h3>研究業務/コンサルティング</h3>
+            <p>先行研究や既存データの分析を通じて、顧客の悩みを解消する知見を提示します。</p>
+          </article>
+          <article class="card">
+            <h3>研修/講義</h3>
+            <p>DEIやストレスマネジメント、女性の健康支援に関する研修を設計・実施します。</p>
+          </article>
+          <article class="card">
+            <h3>企画設計/ディレクション</h3>
+            <p>健康や多様性に関する課題解決に資する企画（デザイン、システム構築、新規事業相談）を実行します。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="works">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <p class="sub">実績</p>
+            <h2>Works</h2>
+          </div>
+        </div>
+
+        <div class="work-block">
+          <h3>研究業務/コンサルティング</h3>
+          <p class="clients">【過去取引先】慶應義塾大学、関東学院大学、神奈川県立保健福祉大学、横浜市立大学、東京藝術大学、福岡国際医療福祉大学、高等教育総合研究所、HYPER RESORT株式会社、株式会社メビックス、株式会社エジュカルサポート、グローラボ株式会社、東証一部上場企業（守秘義務により詳細公開不可）</p>
+          <ul class="checklist">
+            <li>先行研究/関連文献の収集及び整理</li>
+            <li>インタビューおよび統計データの分析</li>
+            <li>スポットコンサルテーション</li>
+          </ul>
+        </div>
+
+        <div class="work-block">
+          <h3>研修/講義</h3>
+          <p class="clients">【過去取引先】神田外語大学（非常勤講師）、関西福祉大学（非常勤講師）、横浜市医師会立聖灯看護専門学校、京都芸術大学（ゲスト講師）、東京医薬看護専門学校、資生堂美容専門学校、山野美容専門学校、早稲田速記医療福祉専門学校、京都府助産師会等</p>
+          <ul class="checklist">
+            <li>DEI研修</li>
+            <li>女性の健康に関する講義</li>
+            <li>公衆衛生および保健に関する講義</li>
+          </ul>
+        </div>
+
+        <div class="work-block">
+          <h3>企画設計/ディレクション</h3>
+          <p class="clients">【過去取引先】HYPER RESORT株式会社、東京藝術大学、東京医薬看護専門学校、合同会社たゆたう等</p>
+          <ul class="checklist">
+            <li>社員負担軽減に向けたシステム構築</li>
+            <li>課題検討のためのワークショップ設計および実施</li>
+            <li>新規事業立案支援・デザイン</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <p class="sub">私について</p>
+            <h2>About</h2>
+          </div>
+        </div>
+
+        <p class="about-name">三宮 柾名（Sannomiya Masana）</p>
+        <p class="about-text">看護師。東京大学、ロンドン大学を経て、イギリスのランカスター大学博士課程3年生。横浜市立大学共同研究員および東京藝術大学協力研究員。健康、ウェルビーイング、ダイバーシティを専門とする。</p>
+
+        <p class="detail-heading">研究内容の詳細</p>
+        <ul>
+          <li><a class="cv-link" href="https://researchmap.jp/m_sannomiya">研究系の履歴書はこちら</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title">
+          <div>
+            <p class="sub">お問い合わせ</p>
+            <h2>Contact</h2>
+          </div>
+        </div>
+
+        <p class="contact-text">お仕事のご依頼やご相談は以下のフォームよりお気軽にご連絡ください。<br>通常1営業日以内にメールにてご返信いたします。</p>
+
+        <form action="https://formspree.io/f/mdayeapr" method="POST" enctype="multipart/form-data">
+          <input type="hidden" name="_subject" value="Webサイトから新しいお問い合わせが届きました">
+          <input type="hidden" name="_language" value="ja">
+          <div>
+            <label for="name">お名前 <span class="tag">必須</span></label>
+            <input id="name" name="name" type="text" placeholder="田中 太郎" required>
+          </div>
+
+          <div>
+            <label for="email">メールアドレス <span class="tag">必須</span></label>
+            <input id="email" name="email" type="email" placeholder="example@abc.com" required>
+          </div>
+
+          <div>
+            <label for="company">会社名 <span class="tag">任意</span></label>
+            <input id="company" name="company" type="text" placeholder="株式会社エービーシー">
+          </div>
+
+          <div>
+            <label>お問い合わせの種類 <span class="tag">必須</span></label>
+            <div class="radio-group">
+              <label><input type="radio" name="type" value="仕事の相談" required> お仕事のご相談</label>
+              <label><input type="radio" name="type" value="メディア掲載"> メディア掲載のご相談</label>
+              <label><input type="radio" name="type" value="その他"> その他</label>
+            </div>
+          </div>
+
+          <div>
+            <label for="message">お問い合わせ内容 <span class="tag">必須</span></label>
+            <textarea id="message" name="message" placeholder="お問い合わせ内容は、こちらに記載ください" required></textarea>
+          </div>
+
+          <div>
+            <label for="file">ファイル添付 <span class="tag">任意</span></label>
+            <input id="file" name="file" type="file">
+          </div>
+
+          <div class="policy">
+            <h3>プライバシーポリシー</h3>
+三宮柾名（以下、「当方」といいます。）は、本ウェブサイト上で提供するサービス（以下、「本サービス」といいます。）における、ユーザーの個人情報の取扱いについて、以下のとおりプライバシーポリシー（以下、「本ポリシー」といいます。）を定めます。
+
+第1条（個人情報）
+「個人情報」とは、個人情報保護法にいう「個人情報」を指すものとし、生存する個人に関する情報であって、当該情報に含まれる氏名、生年月日、住所、電話番号、連絡先その他の記述等により特定の個人を識別できる情報などを指します。
+
+第2条（個人情報の収集方法）
+当方は、ユーザーがお問い合わせフォームなどを利用する際に、氏名、メールアドレス、電話番号、会社名などの個人情報をお尋ねすることがあります。
+
+第3条（個人情報の利用目的）
+当方が個人情報を収集・利用する目的は、以下のとおりです。
+
+・当方サービスの提供・運営のため
+・ユーザーからのお問い合わせに回答するため（本人確認を行うことを含む）
+・メンテナンス、重要なお知らせなど必要に応じたご連絡のため
+・利用規約に違反したユーザーや、不正・不当な目的でサービスを利用しようとするユーザーの特定をし、ご利用をお断りするため
+・上記の利用目的に付随する目的
+
+第4条（利用目的の変更）
+当方は、利用目的が変更前と関連性を有すると合理的に認められる場合に限り、個人情報の利用目的を変更するものとします。
+
+第5条（個人情報の第三者提供）
+当方は、次に掲げる場合を除いて、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供することはありません。ただし、個人情報保護法その他の法令で認められる場合を除きます。
+
+・人の生命、身体または財産の保護のために必要がある場合であって、本人の同意を得ることが困難であるとき
+・公衆衛生の向上または児童の健全な育成の推進のために特に必要がある場合であって、本人の同意を得ることが困難であるとき
+・国の機関もしくは地方公共団体またはその委託を受けた者が法令の定める事務を遂行することに対して協力する必要がある場合であって、本人の同意を得ることにより当該事務の遂行に支障を及ぼすおそれがあるとき
+
+第6条（アクセス解析ツールについて）
+当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を利用しています。このGoogleアナリティクスはトラフィックデータの収集のためにCookieを使用しています。このトラフィックデータは匿名で収集されており、個人を特定するものではありません。この機能はCookieを無効にすることで収集を拒否することが出来ますので、お使いのブラウザの設定をご確認ください。
+
+第7条（お問い合わせ窓口）
+本ポリシーに関するお問い合わせは、下記のお問い合わせフォームよりお願いいたします。
+
+事業者名：三宮柾名
+お問い合わせ：sannomiyaresearch@gmail.com
+
+以上
+          </div>
+
+          <div class="check-consent">
+            <label><input type="checkbox" required> プライバシーポリシーに同意する</label>
+          </div>
+
+          <p class="submit-note">ご入力内容を確認の上、送信ボタンを押してください。<br>※入力確認画面や自動返信メールはございません。</p>
+
+          <p class="submit-note">※このHTMLはFormspree連携済みです。送信先は Formspree（mdayeapr）に設定されています。</p>
+
+          <div>
+            <button class="button" type="submit">送信する</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © SANNOMIYA MASANA
+    </div>
+  </footer>
+</body>
+</html>
